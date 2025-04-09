@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-white text-gray-800;
+  }
+}
+
+@layer components {
+  .menu-item {
+    @apply transition-colors duration-200;
+  }
+  
+  .menu-item:active {
+    @apply bg-gray-100;
+  }
+}
