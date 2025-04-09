@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal & Settings</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#3a7d88',secondary:'#f0d699'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+background-color: #ffffff;
+}
+.menu-item {
+transition: background-color 0.2s;
+}
+.menu-item:active {
+background-color: #f5f5f5;
+}
+.divider {
+height: 1px;
+background-color: #f0f0f0;
+}
+</style>
+</head>
+<body class="bg-white text-gray-800 w-[375px] min-h-[762px] mx-auto relative pb-20">
+<!-- User Profile Section -->
+<div class="px-5 pt-6 pb-4 flex items-center">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-semibold text-xl">
+C
+</div>
+<div class="ml-3">
+<h1 class="text-xl font-medium">Clo</h1>
+<div class="flex items-center">
+<span class="font-['Pacifico'] text-base">logo</span>
+<span class="ml-2 px-2 py-0.5 text-xs bg-secondary text-gray-700 rounded-full">PREMIUM</span>
+</div>
+</div>
+</div>
+<!-- Main Menu Section -->
+<div class="mt-2">
+<!-- Messages -->
+<div class="menu-item px-5 py-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-message-2-line text-gray-700"></i>
+</div>
+<span class="ml-4">Messages</span>
+</div>
+<i class="ri-arrow-right-s-line text-gray-400"></i>
+</div>
+<div class="divider mx-5"></div>
+<!-- Stress graph -->
+<div class="menu-item px-5 py-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-line-chart-line text-gray-700"></i>
+</div>
+<span class="ml-4">Stress graph</span>
+</div>
+<i class="ri-arrow-right-s-line text-gray-400"></i>
+</div>
+<div class="divider mx-5"></div>
+<!-- Move -->
+<div class="menu-item px-5 py-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-fire-line text-gray-700"></i>
+</div>
+<span class="ml-4">logo Move</span>
+</div>
+<div class="flex items-center">
+<i class="ri-vip-crown-fill text-secondary mr-1"></i>
+<i class="ri-arrow-right-s-line text-gray-400"></i>
+</div>
+</div>
+<div class="divider mx-5"></div>
+<!-- Muscle Defense -->
+<div class="menu-item px-5 py-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-boxing-line text-gray-700"></i>
+</div>
+<span class="ml-4">Muscle Defense™</span>
+</div>
+<div class="flex items-center">
+<i class="ri-vip-crown-fill text-secondary mr-1"></i>
+<i class="ri-arrow-right-s-line text-gray-400"></i>
+</div>
+</div>
+<div class="divider mx-5"></div>
+<!-- Exercise plan -->
+<div class="menu-item px-5 py-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-fire-line text-gray-700"></i>
+</div>
+<span class="ml-4">Exercise plan</span>
+</div>
+<div class="flex items-center">
+<i class="ri-vip-crown-fill text-secondary mr-1"></i>
+<i class="ri-arrow-right-s-line text-gray-400"></i>
+</div>
+</div>
+<div class="divider mx-5"></div>
+<!-- Saved lessons -->
+<div class="menu-item px-5 py-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-bookmark-line text-gray-700"></i>
+</div>
+<span class="ml-4">Saved lessons</span>
+</div>
+<i class="ri-arrow-right-s-line text-gray-400"></i>
+</div>
+<div class="divider mx-5"></div>
+<!-- History -->
+<div class="menu-item px-5 py-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-history-line text-gray-700"></i>
+</div>
+<span class="ml-4">History</span>
+</div>
+<i class="ri-arrow-right-s-line text-gray-400"></i>
+</div>
+<div class="divider mx-5"></div>
+<!-- My Commitments -->
+<div class="menu-item px-5 py-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-target-line text-gray-700"></i>
+</div>
+<span class="ml-4">My Commitments</span>
+</div>
+<i class="ri-arrow-right-s-line text-gray-400"></i>
+</div>
+<div class="divider mx-5"></div>
+<!-- Settings -->
+<div class="menu-item px-5 py-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-settings-3-line text-gray-700"></i>
+</div>
+<span class="ml-4">Settings</span>
+</div>
+<i class="ri-arrow-right-s-line text-gray-400"></i>
+</div>
+<div class="divider mx-5"></div>
+
+<!-- Additional Features -->
+<div class="px-5 pt-6 pb-2">
+<h2 class="text-base font-medium text-gray-500">& more</h2>
+</div>
+<!-- Refer a friend -->
+<div class="menu-item px-5 py-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-gift-line text-gray-700"></i>
+</div>
+<span class="ml-4">Refer a friend!</span>
+</div>
+<i class="ri-arrow-right-s-line text-gray-400"></i>
+</div>
+<div class="divider mx-5"></div>
+<!-- Help -->
+<div class="menu-item px-5 py-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-question-line text-gray-700"></i>
+</div>
+<span class="ml-4">Help</span>
+</div>
+<i class="ri-arrow-right-s-line text-gray-400"></i>
+</div>
+<div class="divider mx-5"></div>
+</div>
+<!-- Tab Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 px-2 py-2 flex justify-around">
+<div class="flex flex-col items-center cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-home-5-line text-gray-500"></i>
+</div>
+<span class="text-xs mt-1 text-gray-500">Home</span>
+</div>
+<div class="flex flex-col items-center cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-book-open-line text-gray-500"></i>
+</div>
+<span class="text-xs mt-1 text-gray-500">Learn</span>
+</div>
+<div class="flex flex-col items-center cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-heart-pulse-line text-gray-500"></i>
+</div>
+<span class="text-xs mt-1 text-gray-500">Health</span>
+</div>
+<div class="flex flex-col items-center cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-user-line text-primary"></i>
+</div>
+<span class="text-xs mt-1 text-primary">Profile</span>
+</div>
+</div>
+<script>
+document.querySelectorAll('.menu-item').forEach(item => {
+item.addEventListener('click', function() {
+// Handle menu item click
+console.log('Menu item clicked:', this.querySelector('span').textContent);
+});
+});
+</script>
+</body>
+</html>

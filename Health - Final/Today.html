@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wellness App</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#FF7F50',secondary:'#4ECDC4'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+max-width: 375px;
+margin: 0 auto;
+min-height: 762px;
+position: relative;
+background-color: #FAFAFA;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.progress-ring {
+transform: rotate(-90deg);
+}
+.progress-ring__circle {
+transition: stroke-dashoffset 0.35s;
+transform-origin: 50% 50%;
+}
+</style>
+</head>
+<body>
+<!-- Nav Bar -->
+<div class="fixed top-0 w-full bg-white shadow-sm z-50 px-4 py-3 flex justify-between items-center">
+<a href="Profile-&-Settings.html" data-readdy="true" class="w-8 h-8 bg-primary rounded-full overflow-hidden cursor-pointer">
+<img src="https://public.readdy.ai/ai/img_res/5fc21ee3ea2de1cae826ccd26206101e.jpg" alt="Profile" class="w-full h-full object-cover">
+</a>
+<div class="flex items-center">
+<span class="font-['Pacifico'] text-primary text-xl">logo</span>
+</div>
+<a href="AI-Coaching-24_7.html" data-readdy="true" class="w-8 h-8 flex items-center justify-center cursor-pointer">
+<i class="ri-robot-line ri-lg text-primary"></i>
+</a>
+</div>
+<!-- Main Content -->
+<div class="pt-16 pb-20 px-4">
+<!-- Welcome Section -->
+<div class="mt-4 mb-6">
+<h1 class="text-2xl font-semibold"></h1>
+<p class="text-gray-600 mt-1"></p>
+</div>
+<!-- Weekly Calendar and Progress Overview -->
+<div class="bg-white rounded-lg shadow-sm p-4 mb-6 overflow-hidden">
+<img src="https://static.readdy.ai/image/2d34a9aff1a99e3fdc6db4cebe74363d/36390f4a90f0dd800492e009e350532d.png" alt="Calories and Weight Loss Tracker" class="w-full h-auto">
+</div>
+<!-- Emotion Check Section -->
+<div class="mt-6 bg-primary/10 rounded-lg p-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-7 h-7 flex items-center justify-center bg-primary rounded-full mr-2">
+<i class="ri-emotion-line ri-sm text-white"></i>
+</div>
+<div>
+<p class="text-sm font-medium">How are you feeling today?</p>
+</div>
+</div>
+<span class="text-xs text-primary cursor-pointer">See history</span>
+</div>
+<div class="flex justify-between mt-2 bg-white rounded-lg p-1.5 shadow-sm">
+<div class="flex-1 flex flex-col items-center cursor-pointer transition-all hover:scale-110">
+<div class="w-8 h-8 flex items-center justify-center rounded-full">
+<i class="ri-emotion-happy-line ri-lg text-yellow-500"></i>
+</div>
+<span class="text-xs mt-0.5 whitespace-nowrap overflow-hidden text-overflow-ellipsis">Great</span>
+</div>
+<div class="flex-1 flex flex-col items-center cursor-pointer transition-all hover:scale-110">
+<div class="w-8 h-8 flex items-center justify-center rounded-full">
+<i class="ri-emotion-normal-line ri-lg text-green-500"></i>
+</div>
+<span class="text-xs mt-0.5 whitespace-nowrap overflow-hidden text-overflow-ellipsis">Good</span>
+</div>
+<div class="flex-1 flex flex-col items-center cursor-pointer transition-all hover:scale-110">
+<div class="w-8 h-8 flex items-center justify-center rounded-full">
+<i class="ri-emotion-line ri-lg text-blue-500"></i>
+</div>
+<span class="text-xs mt-0.5 whitespace-nowrap overflow-hidden text-overflow-ellipsis">Okay</span>
+</div>
+<div class="flex-1 flex flex-col items-center cursor-pointer transition-all hover:scale-110">
+<div class="w-8 h-8 flex items-center justify-center rounded-full">
+<i class="ri-emotion-unhappy-line ri-lg text-orange-500"></i>
+</div>
+<span class="text-xs mt-0.5 whitespace-nowrap overflow-hidden text-overflow-ellipsis">Not Great</span>
+</div>
+<div class="flex-1 flex flex-col items-center cursor-pointer transition-all hover:scale-110">
+<div class="w-8 h-8 flex items-center justify-center rounded-full">
+<i class="ri-emotion-sad-line ri-lg text-red-500"></i>
+</div>
+<span class="text-xs mt-0.5 whitespace-nowrap overflow-hidden text-overflow-ellipsis">Bad</span>
+</div>
+</div>
+</div>
+<!-- Daily Lessons Section -->
+<div class="mb-6">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-lg font-semibold">Today's Lessons</h2>
+<span class="text-primary text-sm font-medium cursor-pointer">View All</span>
+</div>
+<div class="space-y-3">
+<!-- Lesson 1 -->
+<div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer">
+<div class="h-2 bg-primary"></div>
+<div class="p-3">
+<div class="flex justify-between items-start">
+<div class="flex-1">
+<span class="text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">Psychology</span>
+<h3 class="font-medium mt-1 text-sm">The Science of Habit Formation</h3>
+</div>
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center ml-2">
+<i class="ri-psychology-line text-primary"></i>
+</div>
+</div>
+<div class="flex mt-2 text-xs text-gray-500">
+<span class="flex items-center">
+<i class="ri-time-line ri-sm mr-1"></i> 5 min read
+</span>
+</div>
+</div>
+</div>
+<!-- Lesson 2 -->
+<div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer">
+<div class="h-2 bg-secondary"></div>
+<div class="p-3">
+<div class="flex justify-between items-start">
+<div class="flex-1">
+<span class="text-xs font-medium text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">Nutrition</span>
+<h3 class="font-medium mt-1 text-sm">Mindful Eating Techniques</h3>
+</div>
+<div class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center ml-2">
+<i class="ri-restaurant-line text-secondary"></i>
+</div>
+</div>
+<div class="flex mt-2 text-xs text-gray-500">
+<span class="flex items-center">
+<i class="ri-time-line ri-sm mr-1"></i> 4 min read
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Daily Tasks -->
+<div class="mb-6">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-lg font-semibold">Today's Tasks</h2>
+<span class="text-primary text-sm font-medium cursor-pointer">View All</span>
+</div>
+<!-- Task Cards -->
+<div class="space-y-3">
+<!-- Task 1 -->
+<a href="https://carv.io" data-readdy="true" class="bg-white rounded-lg shadow-sm p-3 flex items-start">
+<div class="w-6 h-6 flex items-center justify-center bg-primary/10 rounded-full mr-2 mt-0.5">
+<i class="ri-scales-3-line ri-sm text-primary"></i>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h3 class="font-medium text-sm">Log Your Weight</h3>
+<div class="w-5 h-5 flex items-center justify-center rounded-full border-2 border-primary cursor-pointer">
+<i class="ri-check-line ri-xs text-primary"></i>
+</div>
+</div>
+<div class="flex mt-1 text-xs text-gray-500">
+<span class="flex items-center mr-3">
+<i class="ri-time-line ri-sm mr-1"></i> 1 min
+</span>
+</div>
+</div>
+</a>
+<!-- Task 2 -->
+<div class="bg-white rounded-lg shadow-sm p-3 flex items-start">
+<div class="w-6 h-6 flex items-center justify-center bg-secondary/10 rounded-full mr-2 mt-0.5">
+<i class="ri-restaurant-line ri-sm text-secondary"></i>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h3 class="font-medium text-sm">Log Your Meals</h3>
+<div class="w-5 h-5 flex items-center justify-center rounded-full border-2 border-gray-300 cursor-pointer"></div>
+</div>
+<div class="flex mt-1 text-xs text-gray-500">
+<span class="flex items-center mr-3">
+<i class="ri-time-line ri-sm mr-1"></i> 5 min
+</span>
+</div>
+</div>
+</div>
+<!-- Task 3 -->
+<div class="bg-white rounded-lg shadow-sm p-3 flex items-start">
+<div class="w-6 h-6 flex items-center justify-center bg-blue-100 rounded-full mr-2 mt-0.5">
+<i class="ri-walk-line ri-sm text-blue-500"></i>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h3 class="font-medium text-sm">Take a 20-minute Walk</h3>
+<div class="w-5 h-5 flex items-center justify-center rounded-full border-2 border-gray-300 cursor-pointer"></div>
+</div>
+<div class="flex mt-1 text-xs text-gray-500">
+<span class="flex items-center mr-3">
+<i class="ri-time-line ri-sm mr-1"></i> 20 min
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Discover Section -->
+<div class="mb-6">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-lg font-semibold">Discover</h2>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Sleep -->
+<div class="bg-white rounded-lg shadow-sm p-4 flex flex-col items-center cursor-pointer">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mb-2">
+<i class="ri-moon-line ri-lg text-blue-500"></i>
+</div>
+<h3 class="font-medium text-sm text-center">Sleep</h3>
+<p class="text-xs text-gray-500 text-center mt-1">Eat right, sleep tight</p>
+</div>
+<!-- Recipes -->
+<div class="bg-white rounded-lg shadow-sm p-4 flex flex-col items-center cursor-pointer">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mb-2">
+<i class="ri-file-list-3-line ri-lg text-blue-500"></i>
+</div>
+<h3 class="font-medium text-sm text-center">Recipes</h3>
+<p class="text-xs text-gray-500 text-center mt-1">Cook, eat, log, repeat</p>
+</div>
+<!-- Workouts -->
+<div class="bg-white rounded-lg shadow-sm p-4 flex flex-col items-center cursor-pointer">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mb-2">
+<i class="ri-run-line ri-lg text-blue-500"></i>
+</div>
+<h3 class="font-medium text-sm text-center">Workouts</h3>
+<p class="text-xs text-gray-500 text-center mt-1">Sweating is self-care</p>
+</div>
+<!-- Sync up -->
+<div class="bg-white rounded-lg shadow-sm p-4 flex flex-col items-center cursor-pointer">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mb-2">
+<i class="ri-apps-2-line ri-lg text-blue-500"></i>
+</div>
+<h3 class="font-medium text-sm text-center">Sync up</h3>
+<p class="text-xs text-gray-500 text-center mt-1">Link apps & devices</p>
+</div>
+<!-- Friends -->
+<div class="bg-white rounded-lg shadow-sm p-4 flex flex-col items-center cursor-pointer">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mb-2">
+<i class="ri-user-smile-line ri-lg text-blue-500"></i>
+</div>
+<h3 class="font-medium text-sm text-center">Friends</h3>
+<p class="text-xs text-gray-500 text-center mt-1">Your support squad</p>
+</div>
+<!-- Community -->
+<div class="bg-white rounded-lg shadow-sm p-4 flex flex-col items-center cursor-pointer">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mb-2">
+<i class="ri-message-3-line ri-lg text-blue-500"></i>
+</div>
+<h3 class="font-medium text-sm text-center">Community</h3>
+<p class="text-xs text-gray-500 text-center mt-1">Food & fitness friends</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab Bar 导航 -->
+<div class="fixed bottom-0 w-full bg-white shadow-lg border-t border-gray-100 z-50">
+  <div class="grid grid-cols-3 h-16 gap-0">
+    <a href="Today.html" id="tab-today" class="flex flex-col items-center justify-center cursor-pointer">
+      <div class="w-6 h-6 flex items-center justify-center">
+        <i class="ri-home-5-fill ri-lg text-primary"></i>
+      </div>
+      <span class="text-xs mt-1 text-primary font-medium">Today</span>
+    </a>
+    <a href="Progress.html" id="tab-progress" class="flex flex-col items-center justify-center cursor-pointer">
+      <div class="w-6 h-6 flex items-center justify-center">
+        <i class="ri-line-chart-line ri-lg text-gray-500"></i>
+      </div>
+      <span class="text-xs mt-1 text-gray-500">Progress</span>
+    </a>
+    <a href="Success-Kit.html" id="tab-success" class="flex flex-col items-center justify-center cursor-pointer">
+      <div class="w-6 h-6 flex items-center justify-center">
+        <i class="ri-book-2-line ri-lg text-gray-500"></i>
+      </div>
+      <span class="text-xs mt-1 text-gray-500">Success Kit</span>
+    </a>
+  </div>
+</div>
+
+<!-- 内容面板 -->
+<div id="content-today" class="tab-content">
+  <div class="p-4">
+    <h2 class="text-xl font-semibold">Today 内容</h2>
+    <p>这里是 Today 标签页对应的内容。</p>
+  </div>
+</div>
+<div id="content-progress" class="tab-content hidden">
+  <div class="p-4">
+    <h2 class="text-xl font-semibold">Progress 内容</h2>
+    <p>这里是 Progress 标签页对应的内容。</p>
+  </div>
+</div>
+<div id="content-success" class="tab-content hidden">
+  <div class="p-4">
+    <h2 class="text-xl font-semibold">Success Kit 内容</h2>
+    <p>这里是 Success Kit 标签页对应的内容。</p>
+  </div>
+</div>
+
+<!-- JavaScript 切换逻辑 -->
+<script>
+  // 定义每个 tab 对应的内容面板 ID
+  const tabs = {
+    "tab-today": "content-today",
+    "tab-progress": "content-progress",
+    "tab-success": "content-success"
+  };
+
+  // 为每个 tab 添加点击事件处理器
+  Object.keys(tabs).forEach(tabId => {
+    document.getElementById(tabId).addEventListener('click', function() {
+      // 隐藏所有内容面板
+      Object.values(tabs).forEach(contentId => {
+        document.getElementById(contentId).classList.add('hidden');
+      });
+      // 显示当前点击的面板
+      document.getElementById(tabs[tabId]).classList.remove('hidden');
+
+      // 重置所有 tab 的样式
+      Object.keys(tabs).forEach(id => {
+        const span = document.getElementById(id).querySelector('span');
+        span.classList.remove('text-primary','font-medium');
+        span.classList.add('text-gray-500');
+      });
+      // 设置当前激活的 tab 样式
+      const activeSpan = document.getElementById(tabId).querySelector('span');
+      activeSpan.classList.remove('text-gray-500');
+      activeSpan.classList.add('text-primary','font-medium');
+    });
+  });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Add click functionality to task checkboxes
+const checkboxes = document.querySelectorAll('.border-2');
+checkboxes.forEach(checkbox => {
+checkbox.addEventListener('click', function() {
+if (this.classList.contains('border-gray-300')) {
+this.classList.remove('border-gray-300');
+this.classList.add('border-primary');
+this.innerHTML = '<i class="ri-check-line ri-xs text-primary"></i>';
+} else {
+this.classList.remove('border-primary');
+this.classList.add('border-gray-300');
+this.innerHTML = '';
+}
+});
+});
+// Add click functionality to mood selection
+const moodButtons = document.querySelectorAll('.w-8.h-8');
+moodButtons.forEach(button => {
+button.addEventListener('click', function() {
+// Remove selected state from all mood buttons
+moodButtons.forEach(btn => {
+btn.parentElement.classList.remove('bg-primary/20');
+});
+// Add selected state to clicked button
+this.parentElement.classList.add('bg-primary/20');
+// Show a small confirmation message
+const moodTracker = document.querySelector('.bg-primary\\/10.rounded-lg');
+const confirmationMsg = document.createElement('div');
+confirmationMsg.className = 'text-xs text-center mt-2 text-primary font-medium';
+confirmationMsg.textContent = 'Your mood has been logged!';
+// Remove any existing confirmation message
+const existingMsg = moodTracker.querySelector('.text-xs.text-center.mt-2');
+if (existingMsg) {
+existingMsg.remove();
+}
+moodTracker.appendChild(confirmationMsg);
+// Remove the message after 3 seconds
+setTimeout(() => {
+confirmationMsg.remove();
+}, 3000);
+});
+});
+// Add click functionality to calendar days
+const calendarDays = document.querySelectorAll('.w-9.h-9');
+calendarDays.forEach(day => {
+day.addEventListener('click', function() {
+calendarDays.forEach(d => {
+d.classList.remove('bg-primary', 'text-white');
+d.classList.add('bg-gray-100');
+d.nextElementSibling.classList.remove('text-primary', 'font-medium');
+});
+this.classList.remove('bg-gray-100');
+this.classList.add('bg-primary', 'text-white');
+this.nextElementSibling.classList.add('text-primary', 'font-medium');
+});
+});
+// Create pie chart for today's progress
+const ctx = document.getElementById('todayPieChart')?.getContext('2d');
+if (ctx) {
+const todayPieChart = new Chart(ctx, {
+type: 'doughnut',
+data: {
+labels: ['Completed', 'Remaining'],
+datasets: [{
+data: [75, 25],
+backgroundColor: [
+'#FF7F50',
+'#F5F5F5'
+],
+borderWidth: 0,
+cutout: '70%'
+}]
+},
+options: {
+responsive: true,
+maintainAspectRatio: true,
+plugins: {
+legend: {
+display: false
+},
+tooltip: {
+enabled: false
+}
+}
+}
+});
+}
+// Add click functionality to discover section items
+const discoverItems = document.querySelectorAll('.bg-white.rounded-lg.shadow-sm.p-4.flex.flex-col.items-center.cursor-pointer');
+discoverItems.forEach(item => {
+item.addEventListener('click', function() {
+// Add a subtle animation effect
+this.classList.add('scale-95');
+setTimeout(() => {
+this.classList.remove('scale-95');
+// Show a small popup notification
+const notification = document.createElement('div');
+notification.className = 'fixed bottom-20 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm py-2 px-4 rounded-full opacity-0 transition-opacity duration-300';
+notification.textContent = `Exploring ${this.querySelector('h3').textContent}`;
+document.body.appendChild(notification);
+// Show and hide the notification
+setTimeout(() => {
+notification.classList.remove('opacity-0');
+notification.classList.add('opacity-90');
+setTimeout(() => {
+notification.classList.remove('opacity-90');
+notification.classList.add('opacity-0');
+setTimeout(() => {
+notification.remove();
+}, 300);
+}, 2000);
+}, 100);
+}, 150);
+});
+});
+});
+</script>
+</body>
+</html>

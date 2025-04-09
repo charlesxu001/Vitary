@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Weight Loss Coach</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#4F46E5',secondary:'#10B981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAFAFA;
+        }
+        .chat-container {
+            height: calc(100vh - 140px);
+            overflow-y: auto;
+        }
+        .message-bubble {
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .suggestion-pill::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Nav Bar -->
+    <nav class="fixed top-0 w-full bg-primary text-white shadow-md z-10">
+        <div class="flex items-center justify-between px-4 py-3">
+            <div class="flex items-center">
+                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-primary mr-2">
+                    <i class="ri-robot-line ri-lg"></i>
+                </div>
+                <h1 class="font-['Pacifico'] text-xl">logo</h1>
+            </div>
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 flex items-center justify-center">
+                    <i class="ri-information-line ri-lg cursor-pointer"></i>
+                </div>
+                <div class="w-8 h-8 flex items-center justify-center">
+                    <i class="ri-settings-3-line ri-lg cursor-pointer"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chat Container -->
+    <div class="chat-container pt-16 pb-24 px-4">
+        <!-- Welcome Message -->
+        <div class="flex mb-4 mt-2">
+            <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white mr-2 flex-shrink-0">
+                <i class="ri-robot-line"></i>
+            </div>
+            <div class="message-bubble bg-gray-100 p-3 rounded-lg rounded-tl-none">
+                <p>Hi there! I'm your AI weight loss coach. I'm here to help you achieve your fitness goals with personalized advice and support. How can I assist you today?</p>
+                <span class="text-xs text-gray-500 mt-1 block">9:30 AM</span>
+            </div>
+        </div>
+
+        <!-- User Message -->
+        <div class="flex justify-end mb-4">
+            <div class="message-bubble bg-primary bg-opacity-10 p-3 rounded-lg rounded-tr-none">
+                <p>Hi! I've been trying to lose weight for a few months now but I seem to have hit a plateau. Any advice?</p>
+                <span class="text-xs text-gray-500 mt-1 block">9:32 AM</span>
+            </div>
+        </div>
+
+        <!-- AI Coach Response -->
+        <div class="flex mb-4">
+            <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white mr-2 flex-shrink-0">
+                <i class="ri-robot-line"></i>
+            </div>
+            <div class="message-bubble bg-gray-100 p-3 rounded-lg rounded-tl-none">
+                <p>Weight loss plateaus are completely normal! Here are some strategies that might help:</p>
+                <ul class="list-disc pl-5 my-2">
+                    <li>Reassess your calorie intake - your needs may have changed</li>
+                    <li>Mix up your exercise routine to challenge your body</li>
+                    <li>Ensure you're getting enough sleep and managing stress</li>
+                    <li>Track your food intake for a week to identify any hidden calories</li>
+                </ul>
+                <p>Would you like me to help you with any of these strategies in particular?</p>
+                <span class="text-xs text-gray-500 mt-1 block">9:34 AM</span>
+            </div>
+        </div>
+
+        <!-- User Message -->
+        <div class="flex justify-end mb-4">
+            <div class="message-bubble bg-primary bg-opacity-10 p-3 rounded-lg rounded-tr-none">
+                <p>I think I need to change my exercise routine. I've been doing the same cardio workout for months.</p>
+                <span class="text-xs text-gray-500 mt-1 block">9:36 AM</span>
+            </div>
+        </div>
+
+        <!-- AI Coach Response -->
+        <div class="flex mb-4">
+            <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white mr-2 flex-shrink-0">
+                <i class="ri-robot-line"></i>
+            </div>
+            <div class="message-bubble bg-gray-100 p-3 rounded-lg rounded-tl-none">
+                <p>Great observation! Your body adapts to exercise over time, making it less effective for weight loss. Here's what I suggest:</p>
+                <ol class="list-decimal pl-5 my-2">
+                    <li>Add strength training 2-3 times per week</li>
+                    <li>Try HIIT (High-Intensity Interval Training) to boost metabolism</li>
+                    <li>Incorporate active recovery days with yoga or swimming</li>
+                </ol>
+                <p>Would you like a sample weekly workout plan that incorporates these elements?</p>
+                <span class="text-xs text-gray-500 mt-1 block">9:38 AM</span>
+            </div>
+        </div>
+
+        <!-- User Message -->
+        <div class="flex justify-end mb-4">
+            <div class="message-bubble bg-primary bg-opacity-10 p-3 rounded-lg rounded-tr-none">
+                <p>Yes, that would be really helpful! I'm also curious about nutrition - should I be changing my diet too?</p>
+                <span class="text-xs text-gray-500 mt-1 block">9:40 AM</span>
+            </div>
+        </div>
+
+        <!-- AI Coach Response -->
+        <div class="flex mb-4">
+            <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white mr-2 flex-shrink-0">
+                <i class="ri-robot-line"></i>
+            </div>
+            <div class="message-bubble bg-gray-100 p-3 rounded-lg rounded-tl-none">
+                <p>Absolutely! Nutrition plays a crucial role in breaking through plateaus. Consider these adjustments:</p>
+                <ul class="list-disc pl-5 my-2">
+                    <li>Increase protein intake to support muscle recovery</li>
+                    <li>Cycle your carbohydrates (higher on workout days, lower on rest days)</li>
+                    <li>Ensure adequate hydration (aim for 2-3 liters daily)</li>
+                    <li>Add more fiber-rich foods to increase satiety</li>
+                </ul>
+                <p>I'll send you that workout plan shortly. Would you also like some meal ideas that complement this approach?</p>
+                <span class="text-xs text-gray-500 mt-1 block">9:42 AM</span>
+            </div>
+        </div>
+
+        <!-- User Message -->
+        <div class="flex justify-end mb-4">
+            <div class="message-bubble bg-primary bg-opacity-10 p-3 rounded-lg rounded-tr-none">
+                <p>That would be great! I'm particularly interested in quick breakfast options that are high in protein.</p>
+                <span class="text-xs text-gray-500 mt-1 block">9:44 AM</span>
+            </div>
+        </div>
+
+        <!-- AI Coach Response -->
+        <div class="flex mb-4">
+            <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white mr-2 flex-shrink-0">
+                <i class="ri-robot-line"></i>
+            </div>
+            <div class="message-bubble bg-gray-100 p-3 rounded-lg rounded-tl-none">
+                <p>Here are some quick, high-protein breakfast ideas:</p>
+                <ol class="list-decimal pl-5 my-2">
+                    <li>Greek yogurt with berries and a tablespoon of chia seeds (24g protein)</li>
+                    <li>Protein smoothie with whey protein, spinach, banana, and almond milk (30g protein)</li>
+                    <li>Egg white omelet with vegetables and a slice of whole grain toast (22g protein)</li>
+                    <li>Overnight oats made with milk, protein powder, and nuts (25g protein)</li>
+                </ol>
+                <p>These options take less than 10 minutes to prepare and will keep you full until lunch!</p>
+                <span class="text-xs text-gray-500 mt-1 block">9:46 AM</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Suggestion Pills -->
+    <div class="fixed bottom-16 w-full px-4 py-2 bg-white border-t border-gray-200">
+        <div class="suggestion-pill flex overflow-x-auto space-x-2 pb-2">
+            <button class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm px-4 py-2 rounded-full cursor-pointer">
+                Make me a low keto recipe
+            </button>
+            <button class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm px-4 py-2 rounded-full cursor-pointer">
+                What's CBT approach on weight loss
+            </button>
+            <button class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm px-4 py-2 rounded-full cursor-pointer">
+                I feel bad that I just had a cheesecake
+            </button>
+            <button class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm px-4 py-2 rounded-full cursor-pointer">
+                How to stay motivated
+            </button>
+        </div>
+    </div>
+
+    <!-- Input Bar -->
+    <div class="fixed bottom-0 w-full bg-white border-t border-gray-200 px-4 py-2">
+        <div class="flex items-center">
+            <div class="w-10 h-10 flex items-center justify-center mr-2">
+                <i class="ri-mic-line ri-lg text-gray-500 cursor-pointer"></i>
+            </div>
+            <input type="text" placeholder="Type your message..." class="flex-1 border border-gray-300 rounded-button py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+            <div class="w-10 h-10 flex items-center justify-center ml-2">
+                <i class="ri-send-plane-fill ri-lg text-primary cursor-pointer"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatContainer = document.querySelector('.chat-container');
+            const suggestionPills = document.querySelectorAll('.suggestion-pill button');
+            const sendButton = document.querySelector('.ri-send-plane-fill');
+            const inputField = document.querySelector('input[type="text"]');
+            
+            // Scroll to bottom of chat
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            
+            // Handle suggestion pill clicks
+            suggestionPills.forEach(pill => {
+                pill.addEventListener('click', function() {
+                    const pillText = this.textContent.trim();
+                    inputField.value = pillText;
+                    sendMessage(pillText);
+                });
+            });
+            
+            // Handle send button click
+            sendButton.addEventListener('click', function() {
+                if (inputField.value.trim() !== '') {
+                    sendMessage(inputField.value);
+                    inputField.value = '';
+                }
+            });
+            
+            // Handle enter key press
+            inputField.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && inputField.value.trim() !== '') {
+                    sendMessage(inputField.value);
+                    inputField.value = '';
+                }
+            });
+            
+            // Function to add user message and AI response
+            function sendMessage(message) {
+                // Get current time
+                const now = new Date();
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                const timeString = `${hours}:${minutes < 10 ? '0' + minutes : minutes} ${hours >= 12 ? 'PM' : 'AM'}`;
+                
+                // Add user message
+                const userMessage = document.createElement('div');
+                userMessage.className = 'flex justify-end mb-4';
+                userMessage.innerHTML = `
+                    <div class="message-bubble bg-primary bg-opacity-10 p-3 rounded-lg rounded-tr-none">
+                        <p>${message}</p>
+                        <span class="text-xs text-gray-500 mt-1 block">${timeString}</span>
+                    </div>
+                `;
+                chatContainer.appendChild(userMessage);
+                
+                // Scroll to bottom
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+                
+                // Simulate AI thinking
+                setTimeout(() => {
+                    // Add AI response based on user message
+                    let response = '';
+                    
+                    if (message.toLowerCase().includes('keto recipe')) {
+                        response = `
+                            <p>Here's a simple low-carb keto recipe you can try:</p>
+                            <p class="font-medium mt-2">Avocado Egg Boats</p>
+                            <ul class="list-disc pl-5 my-2">
+                                <li>2 ripe avocados, halved and pitted</li>
+                                <li>4 medium eggs</li>
+                                <li>4 strips bacon, cooked and crumbled</li>
+                                <li>1/4 cup shredded cheddar cheese</li>
+                                <li>Salt and pepper to taste</li>
+                                <li>Optional: chives or green onions</li>
+                            </ul>
+                            <p class="mt-2">Instructions:</p>
+                            <ol class="list-decimal pl-5 my-2">
+                                <li>Preheat oven to 425°F (220°C)</li>
+                                <li>Scoop out a bit more from each avocado half to fit the egg</li>
+                                <li>Place avocados in a baking dish, crack an egg into each</li>
+                                <li>Sprinkle with salt, pepper, cheese and bacon</li>
+                                <li>Bake for 15-20 minutes until eggs are set</li>
+                            </ol>
+                            <p>Enjoy! This meal has approximately 5g net carbs, 22g fat, and 12g protein per serving.</p>
+                        `;
+                    } else if (message.toLowerCase().includes('cbt approach')) {
+                        response = `
+                            <p>Cognitive Behavioral Therapy (CBT) can be very effective for weight loss. Here's how it works:</p>
+                            <ul class="list-disc pl-5 my-2">
+                                <li><strong>Identify negative thought patterns</strong> - Recognize thoughts like "I'll never lose weight" or "One cookie ruins everything"</li>
+                                <li><strong>Challenge cognitive distortions</strong> - Question all-or-nothing thinking and catastrophizing about food choices</li>
+                                <li><strong>Develop coping strategies</strong> - Create healthier responses to emotional eating triggers</li>
+                                <li><strong>Set realistic goals</strong> - Focus on sustainable behavioral changes rather than just weight</li>
+                            </ul>
+                            <p>Would you like me to help you identify some of your thought patterns around food and weight loss?</p>
+                        `;
+                    } else if (message.toLowerCase().includes('cheesecake') || message.toLowerCase().includes('feel bad')) {
+                        response = `
+                            <p>It's completely normal to feel guilty after indulging, but one cheesecake doesn't define your journey! Here's what to do:</p>
+                            <ul class="list-disc pl-5 my-2">
+                                <li><strong>Practice self-compassion</strong> - Speak to yourself as you would to a friend</li>
+                                <li><strong>Avoid the "what-the-hell effect"</strong> - Don't let one indulgence turn into a day of overeating</li>
+                                <li><strong>Get back on track immediately</strong> - Drink water, go for a walk, and plan a nutritious next meal</li>
+                                <li><strong>Learn from it</strong> - What triggered this? Were you stressed, bored, or celebrating?</li>
+                            </ul>
+                            <p>Remember: Consistency matters more than perfection. You're doing great by being mindful about it!</p>
+                        `;
+                    } else if (message.toLowerCase().includes('motivated') || message.toLowerCase().includes('motivation')) {
+                        response = `
+                            <p>Staying motivated on your weight loss journey can be challenging! Here are some evidence-based strategies:</p>
+                            <ul class="list-disc pl-5 my-2">
+                                <li><strong>Set process goals</strong> - Focus on behaviors (like walking 30 mins daily) rather than outcomes (losing X pounds)</li>
+                                <li><strong>Track non-scale victories</strong> - Energy levels, sleep quality, clothing fit, etc.</li>
+                                <li><strong>Find your "why"</strong> - Connect to deeper reasons beyond appearance</li>
+                                <li><strong>Build a support system</strong> - Share your journey with supportive friends or communities</li>
+                                <li><strong>Celebrate small wins</strong> - Acknowledge every positive choice you make</li>
+                            </ul>
+                            <p>Would you like to explore which of these might work best for your personality and lifestyle?</p>
+                        `;
+                    } else {
+                        response = `
+                            <p>Thank you for sharing that with me. I'm here to support your weight loss journey in any way I can.</p>
+                            <p>Would you like some specific advice about nutrition, exercise, mindset, or perhaps a combination of these areas?</p>
+                        `;
+                    }
+                    
+                    // Create AI message element
+                    const aiMessage = document.createElement('div');
+                    aiMessage.className = 'flex mb-4';
+                    aiMessage.innerHTML = `
+                        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white mr-2 flex-shrink-0">
+                            <i class="ri-robot-line"></i>
+                        </div>
+                        <div class="message-bubble bg-gray-100 p-3 rounded-lg rounded-tl-none">
+                            ${response}
+                            <span class="text-xs text-gray-500 mt-1 block">${timeString}</span>
+                        </div>
+                    `;
+                    chatContainer.appendChild(aiMessage);
+                    
+                    // Scroll to bottom
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>

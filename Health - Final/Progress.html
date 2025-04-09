@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=375px, initial-scale=1.0">
+<title>Fitness Journey</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4285F4',secondary:'#FF6B6B'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+background-color: #FAFAFA;
+}
+.tab-content {
+display: none;
+}
+.tab-content.active {
+display: block;
+}
+.course-node {
+position: relative;
+z-index: 2;
+}
+.course-path {
+position: absolute;
+z-index: 1;
+}
+</style>
+</head>
+<body class="bg-white text-gray-800">
+<!-- Nav Bar -->
+<div class="fixed top-0 w-full bg-white z-10 border-b border-gray-100 shadow-sm">
+<div class="px-4 py-3">
+<h1 class="text-2xl font-bold">Progress</h1>
+</div>
+<!-- Tabs -->
+<div class="flex border-b border-gray-200">
+<button id="trends-tab" class="tab-btn flex-1 py-3 px-4 text-gray-500 font-medium">Trends</button>
+<button id="course-map-tab" class="tab-btn flex-1 py-3 px-4 text-primary font-medium border-b-2 border-primary">Course Map</button>
+</div>
+</div>
+<!-- Content Area -->
+<div class="pt-24 pb-20 px-4">
+<!-- Trends Tab Content -->
+<div id="trends-content" class="tab-content">
+<!-- AI Coach Reminders -->
+<div class="mb-6 bg-blue-50 rounded-lg p-4 border-l-4 border-primary">
+  <div class="flex items-start">
+    <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-3">
+      <i class="ri-robot-line text-primary ri-lg"></i>
+    </div>
+    <div>
+      <h3 class="font-medium text-gray-800">Coach Emma</h3>
+      <p class="text-gray-600 text-sm">Great job on your progress this week! You're down 1.2 lbs and completed 4 workouts. Remember, consistency is key! 💪</p>
+    </div>
+  </div>
+</div>
+
+<div class="mb-6 bg-green-50 rounded-lg p-4 border-l-4 border-green-500">
+  <div class="flex items-start">
+    <div class="w-10 h-10 flex items-center justify-center bg-green-500 bg-opacity-20 rounded-full mr-3">
+      <i class="ri-water-flash-line text-green-600 ri-lg"></i>
+    </div>
+    <div>
+      <h3 class="font-medium text-gray-800">Hydration Tip</h3>
+      <p class="text-gray-600 text-sm">You're at 5 cups of water today. Try to reach 8 cups for optimal hydration and metabolism support! 💧</p>
+    </div>
+  </div>
+</div>
+
+<div class="mb-6">
+<h2 class="text-lg font-semibold mb-3">Weight Progress</h2>
+<div class="bg-white rounded shadow-sm p-4 h-48 flex items-center justify-center">
+<div id="weight-chart" class="w-full h-full"></div>
+</div>
+</div>
+<div class="mb-6">
+<h2 class="text-lg font-semibold mb-3">Daily Nutrition</h2>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-white rounded shadow-sm p-4">
+<div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mb-2">
+<i class="ri-fire-line text-primary ri-lg"></i>
+</div>
+<p class="text-sm text-gray-500">Calories</p>
+<p class="text-xl font-semibold">1,450 <span class="text-sm font-normal text-gray-500">/ 1,800</span></p>
+<div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+<div class="bg-primary h-2 rounded-full" style="width: 80%"></div>
+</div>
+</div>
+<div class="bg-white rounded shadow-sm p-4">
+<div class="w-10 h-10 flex items-center justify-center bg-green-100 rounded-full mb-2">
+<i class="ri-seedling-line text-green-600 ri-lg"></i>
+</div>
+<p class="text-sm text-gray-500">Protein</p>
+<p class="text-xl font-semibold">65g <span class="text-sm font-normal text-gray-500">/ 90g</span></p>
+<div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+<div class="bg-green-600 h-2 rounded-full" style="width: 72%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<h2 class="text-lg font-semibold mb-3">Activity Stats</h2>
+<div class="grid grid-cols-3 gap-3">
+<div class="bg-white rounded shadow-sm p-3 text-center">
+<div class="w-8 h-8 mx-auto flex items-center justify-center bg-purple-100 rounded-full mb-1">
+<i class="ri-footprint-line text-purple-600 ri-lg"></i>
+</div>
+<p class="text-xs text-gray-500">Steps</p>
+<p class="text-lg font-semibold">7,842</p>
+</div>
+<div class="bg-white rounded shadow-sm p-3 text-center">
+<div class="w-8 h-8 mx-auto flex items-center justify-center bg-blue-100 rounded-full mb-1">
+<i class="ri-time-line text-blue-600 ri-lg"></i>
+</div>
+<p class="text-xs text-gray-500">Active</p>
+<p class="text-lg font-semibold">45 min</p>
+</div>
+<div class="bg-white rounded shadow-sm p-3 text-center">
+<div class="w-8 h-8 mx-auto flex items-center justify-center bg-orange-100 rounded-full mb-1">
+<i class="ri-water-flash-line text-orange-600 ri-lg"></i>
+</div>
+<p class="text-xs text-gray-500">Water</p>
+<p class="text-lg font-semibold">5 cups</p>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-lg font-semibold mb-3">Weekly Summary</h2>
+<div class="bg-white rounded shadow-sm p-4">
+<div class="flex justify-between items-center mb-3">
+<p class="font-medium">Average daily calories</p>
+<p class="text-gray-500">1,620</p>
+</div>
+<div class="flex justify-between items-center mb-3">
+<p class="font-medium">Workouts completed</p>
+<p class="text-gray-500">4 / 5</p>
+</div>
+<div class="flex justify-between items-center mb-3">
+<p class="font-medium">Weight change</p>
+<p class="text-green-600">-1.2 lbs</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="font-medium">Lessons completed</p>
+<p class="text-gray-500">3 / 5</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Course Map Tab Content -->
+<div id="course-map-content" class="tab-content active relative min-h-[600px]">
+<!-- Course Path -->
+<svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 375 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M140 100 C 200 100, 200 200, 140 200 C 80 200, 80 300, 140 300 C 200 300, 200 400, 140 400 C 80 400, 80 500, 140 500 C 200 500, 200 600, 140 600" stroke="#4285F4" stroke-width="4" fill="none"/>
+</svg>
+<!-- Course Nodes -->
+<div class="relative z-10">
+<!-- Node 1 -->
+<div class="flex items-center mb-24">
+<div class="course-node w-20 h-20 rounded-full bg-green-100 border-4 border-primary flex items-center justify-center overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/44ce5ba8a2d4dade4ebf5af8079ec950.jpg" alt="Nutrition" class="w-full h-full object-cover">
+</div>
+<div class="ml-4">
+<h3 class="text-xl font-bold">Feel full on fewer calories</h3>
+<div class="flex mt-2">
+<div class="w-8 h-8 flex items-center justify-center mr-2">
+<i class="ri-book-open-line text-gray-600 ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center mr-2">
+<i class="ri-scales-line text-gray-600 ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-restaurant-line text-gray-600 ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Node 2 -->
+<div class="flex items-center mb-24 ml-16">
+<div class="course-node w-20 h-20 rounded-full bg-green-100 border-4 border-primary flex items-center justify-center overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/1b59a69377799cbb406556323d5c3eca.jpg" alt="Success" class="w-full h-full object-cover">
+</div>
+<div class="ml-4">
+<h3 class="text-xl font-bold">Success beyond the scale</h3>
+<div class="flex mt-2">
+<div class="w-8 h-8 flex items-center justify-center mr-2">
+<i class="ri-fire-line text-gray-600 ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-user-line text-gray-600 ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Node 3 -->
+<div class="flex items-center mb-24">
+<div class="course-node w-20 h-20 rounded-full bg-pink-100 border-4 border-primary flex items-center justify-center overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/99147145086b06fc677b329d02547e33.jpg" alt="Psychology" class="w-full h-full object-cover">
+</div>
+<div class="ml-4">
+<h3 class="text-xl font-bold">The psychology of habits</h3>
+<div class="flex mt-2">
+<div class="w-8 h-8 flex items-center justify-center mr-2">
+<i class="ri-flashlight-line text-gray-600 ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-cup-line text-gray-600 ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Node 4 -->
+<div class="flex items-center mb-24 ml-16">
+<div class="course-node w-20 h-20 rounded-full bg-green-100 border-4 border-primary flex items-center justify-center overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/206f7950d1b48440f7882095f032d7c3.jpg" alt="Weight Loss" class="w-full h-full object-cover">
+</div>
+<div class="ml-4">
+<h3 class="text-xl font-bold">The secret to lasting weight loss</h3>
+<div class="flex mt-2">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-lock-line text-gray-600 ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Node 5 -->
+<div class="flex items-center">
+<div class="course-node w-20 h-20 rounded-full bg-blue-100 border-4 border-primary flex items-center justify-center overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/6b0dc1feec6107532d5c6750ca895468.jpg" alt="Motivation" class="w-full h-full object-cover">
+</div>
+<div class="ml-4">
+<h3 class="text-xl font-bold">How to get—and stay—motivated</h3>
+<div class="flex mt-2">
+<div class="w-8 h-8 flex items-center justify-center mr-2">
+<i class="ri-rocket-line text-gray-600 ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-heart-pulse-line text-gray-600 ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab Bar -->
+<div class="fixed bottom-0 w-full bg-white border-t border-gray-200 flex justify-around py-2 z-10">
+<a href="#" class="flex flex-col items-center px-4 py-2 cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-calendar-line text-gray-500 ri-lg"></i>
+</div>
+<span class="text-xs text-gray-500 mt-1">Today</span>
+</a>
+<a href="Progress.html" class="flex flex-col items-center px-4 py-2 cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-bar-chart-fill text-primary ri-lg"></i>
+</div>
+<span class="text-xs text-primary font-medium mt-1">Progress</span>
+</a>
+<a href="Success-Kit.html" class="flex flex-col items-center px-4 py-2 cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-award-line text-gray-500 ri-lg"></i>
+</div>
+<span class="text-xs text-gray-500 mt-1">Success kit</span>
+</a>
+
+<!-- Tab Bar 导航 -->
+<div class="fixed bottom-0 w-full bg-white shadow-lg border-t border-gray-100 z-50">
+  <div class="flex h-16">
+    <a href="Today.html" class="flex-1 flex flex-col items-center justify-center cursor-pointer">
+      <div class="w-6 h-6 flex items-center justify-center">
+        <i class="ri-home-5-line ri-lg text-gray-500"></i>
+      </div>
+      <span class="text-xs mt-1 text-gray-500">Today</span>
+    </a>
+    <a href="Progress.html" class="flex-1 flex flex-col items-center justify-center cursor-pointer">
+      <div class="w-6 h-6 flex items-center justify-center">
+        <i class="ri-line-chart-fill ri-lg text-primary"></i>
+      </div>
+      <span class="text-xs mt-1 text-primary font-medium">Progress</span>
+    </a>
+    <a href="Success-Kit.html" class="flex-1 flex flex-col items-center justify-center cursor-pointer">
+      <div class="w-6 h-6 flex items-center justify-center">
+        <i class="ri-book-2-line ri-lg text-gray-500"></i>
+      </div>
+      <span class="text-xs mt-1 text-gray-500">Success Kit</span>
+    </a>
+  </div>
+</div>
+
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<script>
+// Tab switching
+const trendsTab = document.getElementById('trends-tab');
+const courseMapTab = document.getElementById('course-map-tab');
+const trendsContent = document.getElementById('trends-content');
+const courseMapContent = document.getElementById('course-map-content');
+trendsTab.addEventListener('click', function() {
+trendsTab.classList.add('text-primary', 'border-b-2', 'border-primary');
+courseMapTab.classList.remove('text-primary', 'border-b-2', 'border-primary');
+courseMapTab.classList.add('text-gray-500');
+trendsContent.classList.add('active');
+courseMapContent.classList.remove('active');
+// Initialize chart when trends tab is active
+initWeightChart();
+});
+courseMapTab.addEventListener('click', function() {
+courseMapTab.classList.add('text-primary', 'border-b-2', 'border-primary');
+trendsTab.classList.remove('text-primary', 'border-b-2', 'border-primary');
+trendsTab.classList.add('text-gray-500');
+courseMapContent.classList.add('active');
+trendsContent.classList.remove('active');
+});
+// Make course nodes clickable
+const courseNodes = document.querySelectorAll('.course-node');
+courseNodes.forEach(node => {
+node.addEventListener('click', function() {
+// Show a custom modal or navigate to lesson
+const modal = document.createElement('div');
+modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+modal.innerHTML = `
+<div class="bg-white rounded-lg p-6 w-5/6 max-w-md">
+<h3 class="text-xl font-bold mb-4">Lesson Details</h3>
+<p class="mb-4">This lesson will help you understand key concepts about nutrition and healthy eating habits.</p>
+<div class="flex justify-end">
+<button class="bg-primary text-white px-4 py-2 rounded-button">Start Lesson</button>
+</div>
+</div>
+`;
+document.body.appendChild(modal);
+modal.addEventListener('click', function(e) {
+if (e.target === modal) {
+modal.remove();
+}
+});
+const startButton = modal.querySelector('button');
+startButton.addEventListener('click', function() {
+modal.remove();
+});
+});
+});
+// Initialize weight chart
+function initWeightChart() {
+if (document.getElementById('weight-chart') && trendsContent.classList.contains('active')) {
+const chart = echarts.init(document.getElementById('weight-chart'));
+const option = {
+tooltip: {
+trigger: 'axis'
+},
+grid: {
+left: '3%',
+right: '4%',
+bottom: '3%',
+containLabel: true
+},
+xAxis: {
+type: 'category',
+boundaryGap: false,
+data: ['Apr 1', 'Apr 2', 'Apr 3', 'Apr 4', 'Apr 5', 'Apr 6', 'Apr 7', 'Apr 8']
+},
+yAxis: {
+type: 'value',
+min: 150,
+max: 170
+},
+series: [
+{
+name: 'Weight',
+type: 'line',
+smooth: true,
+lineStyle: {
+color: '#4285F4',
+width: 3
+},
+symbol: 'circle',
+symbolSize: 8,
+itemStyle: {
+color: '#4285F4'
+},
+data: [165.2, 164.8, 164.5, 164.0, 163.5, 163.2, 162.8, 162.4]
+}
+]
+};
+chart.setOption(option);
+window.addEventListener('resize', function() {
+chart.resize();
+});
+}
+}
+</script>
+</body>
+</html>
